@@ -2,7 +2,7 @@
 export default (goals, { text, sortBy, completionStatus}) => {
     return goals.filter((goal) => {
         const textMatch = goal.goalName.toLowerCase().includes(text.toLowerCase());
-        const completionStatusMatch = goal.completionStatus.toString().includes(completionStatus);
+        const completionStatusMatch = goal.completionStatus.toString().includes(completionStatus) || completionStatus === '';
         return textMatch && completionStatusMatch;
     }).sort((a, b) => {
         if (sortBy === 'deadline') {

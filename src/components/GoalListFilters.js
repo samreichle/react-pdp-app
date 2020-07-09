@@ -18,9 +18,12 @@ const GoalListFilters = (props) => (
                     props.dispatch(setCompletionFilter('false'));
                 } else if (e.target.value === 'complete') {
                     props.dispatch(setCompletionFilter('true'));
-                }
+                } else if (e.target.value === 'all') {
+                    props.dispatch(setCompletionFilter(''));
+                } 
             }}
         >
+            <option value="all">All Goals</option>
             <option value="incomplete">Incomplete</option>
             <option value="complete">Complete</option>
         </select>
