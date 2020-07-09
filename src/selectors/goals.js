@@ -1,11 +1,11 @@
 // Get visible goals
-export default (goals, { text, sortBy, startDate, endDate}) => {
+export default (goals, { text, sortBy, startDate, endDate, completionStatus}) => {
     return goals.filter((goal) => {
         const startDateMatch = typeof startDate !== 'number' || goal.createdAt >= startDate;
         const endDateMatch = typeof endDate !== 'number' || goal.createdAt <= endDate;
         const textMatch = goal.goalName.toLowerCase().includes(text.toLowerCase());
-
-        return startDateMatch && endDateMatch && textMatch;
+        const completionStatusMatch = goal.completionStatus.toString().includes(completionStatus);
+        return startDateMatch && endDateMatch && textMatch && completionStatusMatch;
     }).sort((a, b) => {
         if (sortBy === 'date') {
             return a.createdAt < b.createdAt ? 1 : -1;

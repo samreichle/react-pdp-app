@@ -30,3 +30,9 @@ export const setEndDate = (endDate = undefined) => ({
     type: 'SET_END_DATE',
     endDate
 });
+
+// SET_COMPLETION_FILTER
+export const setCompletionFilter = (completionStatus = '') => ({
+    type: 'SET_COMPLETION_FILTER',
+    completionStatus
+});

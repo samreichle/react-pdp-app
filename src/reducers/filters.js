@@ -2,7 +2,8 @@ const filtersReducerDefaultState = {
     text: '', 
     sortBy: 'deadline', 
     startDate: undefined, 
-    endDate: undefined
+    endDate: undefined,
+    completionStatus: ''
 };
 
 export default (state = filtersReducerDefaultState, action) => {
@@ -36,6 +37,11 @@ export default (state = filtersReducerDefaultState, action) => {
              return {
                 ...state,
                 endDate: action.endDate
+            };
+        case 'SET_COMPLETION_FILTER':
+            return {
+                ...state,
+                completionStatus: action.completionStatus
             };
         default:
             return state;
