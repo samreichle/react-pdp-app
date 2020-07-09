@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setTextFilter, sortByDeadline, sortByCompletionStatus, setCompletionFilter } from '../actions/filters';
+import { setTextFilter, setCompletionFilter } from '../actions/filters';
 
 const GoalListFilters = (props) => (
     <div>
@@ -23,20 +23,6 @@ const GoalListFilters = (props) => (
         >
             <option value="incomplete">Incomplete</option>
             <option value="complete">Complete</option>
-        </select>
-
-        <select
-            value={props.filters.sortBy}
-            onChange={(e) => {
-                if (e.target.value === 'deadline') {
-                    props.dispatch(sortByDeadline());
-                } else if (e.target.value === 'completionStatus') {
-                    props.dispatch(sortByCompletionStatus());
-                }
-            }}
-        >
-            <option value="deadline">Deadline</option>
-            <option value="completionStatus">Completion Status</option>
         </select>
     </div>
 );
