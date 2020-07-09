@@ -4,11 +4,6 @@ export const setTextFilter = (text = '') => ({
     text
 });
 
-// SORT_BY_DEADLINE
-export const sortByDeadline = () => ({
-    type: 'SORT_BY_DEADLINE'
-});
-
 // SET_COMPLETION_FILTER
 export const setCompletionFilter = (completionStatus = '') => ({
     type: 'SET_COMPLETION_FILTER',

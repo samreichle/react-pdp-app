@@ -35,7 +35,7 @@ class GoalListItem extends React.Component {
                 <Link to={`/edit/${this.props.id}`}>
                     <h3>{this.props.goalName}</h3>
                 </Link>
-                <p>{this.checkCompletionStatus()} </p>
+                <p>{this.checkCompletionStatus()} - {this.props.deadline}</p>
             </div>
         )
     }
