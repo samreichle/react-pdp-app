@@ -1,0 +1,23 @@
+// px is most common but rem allows better accessibility
+// 62.5% in html allows rem to be divisible by 10 so 1.6 rem = 16 px
+
+html {
+    font-size: 62.5%
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: $m-size;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+}
+
+.is-active {
+    font-weight: bold;
+}
