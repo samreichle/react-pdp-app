@@ -2,10 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GoalListItem from './GoalListItem';
 import selectGoals from '../selectors/goals';
+import { Link } from 'react-router-dom';
 
 const GoalList = (props) => (
     <div>
         <h1>Goal List</h1>
+
+        <Link to="/create">
+            <button>Add Goal</button>
+        </Link>
+        
         {props.goals.map((goal) => {
             return <GoalListItem key={goal.id} {...goal}/>;
         })}
