@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+import 'react-dates/lib/css/_datepicker.css';
+import 'react-dates/initialize';
 
 
 
@@ -13,11 +16,13 @@ import { Link } from 'react-router-dom';
 // );
 
 
+
 class GoalListItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            completionStatus: props.completionStatus
+            completionStatus: props.completionStatus,
+            deadline: props.deadline
         }
     }
 
@@ -29,13 +34,18 @@ class GoalListItem extends React.Component {
         }
     };
 
+    formatDeadline = () => {
+        const newDeadline=  (moment(this.state.deadline));
+        return (newDeadline.format('MMMM Do, YYYY'))
+    };
+   
     render() {
         return (
             <div>
                 <Link to={`/edit/${this.props.id}`}>
                     <h3>{this.props.goalName}</h3>
                 </Link>
-                <p>{this.checkCompletionStatus()} - {this.props.deadline}</p>
+                <p>{this.checkCompletionStatus()} - Deadline: {this.formatDeadline()}</p>
             </div>
         )
     }

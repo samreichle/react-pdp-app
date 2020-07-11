@@ -4,7 +4,7 @@ import GoalsDashboardPage from '../components/GoalsDashboardPage';
 import AddGoalPage from '../components/AddGoalPage';
 import EditGoalPage from '../components/EditGoalPage';
 import NotFoundPage from '../components/NotFoundPage';
-import HelpPage from '../components/HelpPage';
+import FormGeneratorPage from '../components/FormGeneratorPage';
 import Header from '../components/Header';
 import HomePage from '../components/HomePage';
 
@@ -20,7 +20,7 @@ const AppRouter = () => (
                     <Route path="/goals-dashboard" component={GoalsDashboardPage} />
                     <Route path="/create" component={AddGoalPage} />
                     <Route path="/edit/:id" component={EditGoalPage} />
-                    <Route path="/help" component={HelpPage} />
+                    <Route path="/form-generator" component={FormGeneratorPage} />
                     <Route component={NotFoundPage} />
                 </Switch>
             </div>
