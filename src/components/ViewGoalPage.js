@@ -1,28 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import GoalForm from './GoalForm';
-import { editGoal, removeGoal } from '../actions/goals';
+import { removeGoal } from '../actions/goals';
+import IndividualGoal from './IndividualGoal'
 
-const EditGoalPage = (props) => {
+const ViewGoalPage = (props) => {
     return (
         <div>
-            
-            <GoalForm 
+            <IndividualGoal 
                 goal={props.goal}
-                onSubmit={(goal) => {
-                    props.dispatch(editGoal(props.goal.id, goal));
-                    props.history.push(`/goal/${props.goal.id}`);
-                }}
             />
             <button onClick={() => {
                 props.dispatch(removeGoal({ id: props.goal.id }));
                 props.history.push('/goals-dashboard');
             }}>
-                Remove
+                Delete Goal
             </button>
         </div>
     );
-};
+}
 
 const mapStateToProps = (state, props) => {
     return {
@@ -30,4 +25,4 @@ const mapStateToProps = (state, props) => {
     };
 };
 
-export default connect(mapStateToProps)(EditGoalPage);
+export default connect(mapStateToProps)(ViewGoalPage);

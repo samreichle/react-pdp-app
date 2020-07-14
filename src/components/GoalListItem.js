@@ -21,6 +21,8 @@ class GoalListItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: props.id,
+            goalName: props.goalName,
             completionStatus: props.completionStatus,
             deadline: props.deadline
         }
@@ -42,8 +44,8 @@ class GoalListItem extends React.Component {
     render() {
         return (
             <div>
-                <Link to={`/edit/${this.props.id}`}>
-                    <h3>{this.props.goalName}</h3>
+                <Link to={`/goal/${this.state.id}`}>
+                    <h3>{this.state.goalName}</h3>
                 </Link>
                 <p>{this.checkCompletionStatus()} - Deadline: {this.formatDeadline()}</p>
             </div>
