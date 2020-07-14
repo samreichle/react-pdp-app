@@ -74,13 +74,12 @@ export default class GoalForm extends React.Component {
                         value={this.state.goalName}
                         onChange={this.onGoalNameChange}
                     />
-                    <input 
-                        type="text"
+                    <textarea
                         placeholder="Strategies"
-                        autoFocus
                         value={this.state.strategies}
                         onChange={this.onStrategiesChange}
-                    />
+                    >
+                    </textarea>
                     <SingleDatePicker 
                         date={this.state.deadline}
                         onDateChange={this.onDateChange}
