@@ -20,6 +20,8 @@ export default (state = goalsReducerDefaultState, action) => {
                     return goal;
                 };
             });
+        case 'SET_GOALS': 
+            return action.goals;
         default:
             return state;
     }

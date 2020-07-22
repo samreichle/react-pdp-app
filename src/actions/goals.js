@@ -43,3 +43,24 @@ export const editGoal = (id, updates) => ({
     updates
 });
 
+// SET_GOALS
+export const setGoals = (goals) => ({
+    type: 'SET_GOALS',
+    goals
+});
+
+export const startSetGoals = () => {
+    return(dispatch) => {
+        return database.ref('goals').once('value').then((snapshot) => {
+            const goals = [];
+
+            snapshot.forEach((childSnapshot) => {
+                goals.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                });
+            });
+            dispatch(setGoals(goals))
+        });
+    };
+};
