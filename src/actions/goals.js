@@ -51,6 +51,15 @@ export const editGoal = (id, updates) => ({
     updates
 });
 
+export const startEditGoal = (id, updates) => {
+    return (dispatch) => {
+        return database.ref(`goals/${id}`).update(updates).then(() => {
+            dispatch(editGoal(id, updates))
+        });
+    };
+}
+
+
 // SET_GOALS
 export const setGoals = (goals) => ({
     type: 'SET_GOALS',

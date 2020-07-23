@@ -8,25 +8,18 @@ export default class IndividualGoal extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            id: props.goal ? props.goal.id : '',
-            goalName: props.goal ? props.goal.goalName : '',
-            strategies: props.goal ? props.goal.strategies : '',
-            deadline: props.goal ? moment(props.goal.deadline) : moment(),
-            completionStatus:props.goal ? props.goal.completionStatus: false
-        };
     }
 
     checkCompletionStatus = () => {
-        if (this.state.completionStatus === true || this.state.completionStatus === 'true') {
+        if (this.props.goal.completionStatus === true || this.props.goal.completionStatus === 'true') {
             return 'Complete'
-        } else if (this.state.completionStatus === false || this.state.completionStatus === 'false'){
+        } else if (this.props.goal.completionStatus === false || this.props.goal.completionStatus === 'false'){
             return 'Incomplete'
         }
     };
 
     formatDeadline = () => {
-        const newDeadline=  (moment(this.state.deadline));
+        const newDeadline=  (moment(this.props.goal.deadline));
         return (newDeadline.format('MMMM Do, YYYY'))
     };
 
@@ -34,15 +27,15 @@ export default class IndividualGoal extends React.Component {
         return (
             <div>
                 <h2>Goal: </h2>
-                <p>{this.state.goalName}</p>
+                <p>{this.props.goal.goalName}</p>
                 <h2>Strategies: </h2>
-                <p>{this.state.strategies}</p>
+                <p>{this.props.goal.strategies}</p>
                 <h2>Deadline: </h2>
                 <p>{this.formatDeadline()}</p>
                 <h2>Completion Status: </h2>
                 <p>{this.checkCompletionStatus()}</p>
 
-                <Link to={`/edit/${this.state.id}`}>
+                <Link to={`/edit/${this.props.goal.id}`}>
                     <button>Edit Goal</button>
                 </Link>
             </div>
