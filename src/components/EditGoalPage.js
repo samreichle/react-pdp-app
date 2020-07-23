@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import GoalForm from './GoalForm';
-import { editGoal, removeGoal } from '../actions/goals';
+import { editGoal, startRemoveGoal } from '../actions/goals';
 
 const EditGoalPage = (props) => {
     return (
@@ -15,7 +15,7 @@ const EditGoalPage = (props) => {
                 }}
             />
             <button onClick={() => {
-                props.dispatch(removeGoal({ id: props.goal.id }));
+                props.dispatch(startRemoveGoal({ id: props.goal.id }));
                 props.history.push('/goals-dashboard');
             }}>
                 Remove

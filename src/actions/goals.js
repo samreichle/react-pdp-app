@@ -36,6 +36,14 @@ export const removeGoal = ({ id } = {  }) => ({
     id
 });
 
+export const startRemoveGoal = ({ id } = {  }) => {
+    return (dispatch) => {
+        return database.ref(`goals/${id}`).remove().then(() => {
+            dispatch(removeGoal({id}))
+        });
+    };
+}
+
 // EDIT_GOAL
 export const editGoal = (id, updates) => ({
     type: 'EDIT_GOAL',

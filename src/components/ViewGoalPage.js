@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeGoal } from '../actions/goals';
+import { startRemoveGoal } from '../actions/goals';
 import IndividualGoal from './IndividualGoal'
 
 const ViewGoalPage = (props) => {
@@ -10,7 +10,7 @@ const ViewGoalPage = (props) => {
                 goal={props.goal}
             />
             <button onClick={() => {
-                props.dispatch(removeGoal({ id: props.goal.id }));
+                props.dispatch(startRemoveGoal({ id: props.goal.id }));
                 props.history.push('/goals-dashboard');
             }}>
                 Delete Goal
