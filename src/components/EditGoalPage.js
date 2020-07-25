@@ -10,7 +10,7 @@ export class EditGoalPage extends React.Component {
   };
   onRemove = () => {
     this.props.startRemoveGoal({ id: this.props.goal.id });
-    this.props.history.push('/goals-dashboard');
+    this.props.history.push('/dashboard');
   };
   render() {
     return (

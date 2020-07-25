@@ -9,7 +9,7 @@ const AddGoalPage = (props) => (
         <GoalForm 
             onSubmit={(goal) => {
                 props.dispatch(startAddGoal(goal));
-                props.history.push('/goals-dashboard');
+                props.history.push('/dashboard');
             }}
         />
     </div>
