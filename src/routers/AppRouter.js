@@ -10,6 +10,7 @@ import NotFoundPage from '../components/NotFoundPage';
 import FormGeneratorPage from '../components/FormGeneratorPage';
 import HomePage from '../components/HomePage';
 import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 export const history = createBrowserHistory();
 
@@ -17,7 +18,7 @@ const AppRouter = () => (
         <Router history={history}>
             <div>
                 <Switch>
-                    <Route path="/" component={LoginPage} exact={true} />
+                    <PublicRoute path="/" component={LoginPage} exact={true} />
                     <PrivateRoute path="/home" component={HomePage} />
                     <PrivateRoute path="/dashboard" component={GoalsDashboardPage} />
                     <PrivateRoute path="/goal/:id" component={ViewGoalPage} />

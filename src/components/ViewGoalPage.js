@@ -11,7 +11,7 @@ const ViewGoalPage = (props) => {
             />
             <button onClick={() => {
                 props.dispatch(startRemoveGoal({ id: props.goal.id }));
-                props.history.push('/goals-dashboard');
+                props.history.push('/dashboard');
             }}>
                 Delete Goal
             </button>

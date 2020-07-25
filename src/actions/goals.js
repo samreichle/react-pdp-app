@@ -10,7 +10,8 @@ export const addGoal = (goal) => ({
 });
 
 export const startAddGoal = (goalData = {}) => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
         const {
             goalName = '', 
             strategies = '', 
@@ -20,7 +21,7 @@ export const startAddGoal = (goalData = {}) => {
         } = goalData;
         const goal = { goalName, strategies, createdAt, deadline, completionStatus };
 
-        database.ref('goals').push(goal).then((ref) => {
+        return database.ref(`users/${uid}/goals`).push(goal).then((ref) => {
             dispatch(addGoal({
                 id: ref.key,
                 ...goal
@@ -37,8 +38,9 @@ export const removeGoal = ({ id } = {  }) => ({
 });
 
 export const startRemoveGoal = ({ id } = {  }) => {
-    return (dispatch) => {
-        return database.ref(`goals/${id}`).remove().then(() => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/goals/${id}`).remove().then(() => {
             dispatch(removeGoal({id}))
         });
     };
@@ -52,8 +54,9 @@ export const editGoal = (id, updates) => ({
 });
 
 export const startEditGoal = (id, updates) => {
-    return (dispatch) => {
-        return database.ref(`goals/${id}`).update(updates).then(() => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/goals/${id}`).update(updates).then(() => {
             dispatch(editGoal(id, updates))
         });
     };
@@ -67,8 +70,9 @@ export const setGoals = (goals) => ({
 });
 
 export const startSetGoals = () => {
-    return(dispatch) => {
-        return database.ref('goals').once('value').then((snapshot) => {
+    return(dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/goals`).once('value').then((snapshot) => {
             const goals = [];
 
             snapshot.forEach((childSnapshot) => {
