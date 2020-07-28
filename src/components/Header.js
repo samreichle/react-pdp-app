@@ -5,12 +5,18 @@ import { startLogout }from '../actions/auth';
 
 
 export const Header = ({ startLogout }) => (
-    <header>
-        <h1>Professional Development Planner</h1>
-        <NavLink to="/home" activeClassName="is-active">Home</NavLink>
-        <NavLink to="/dashboard" activeClassName="is-active">Goals</NavLink>
-        <NavLink to="/form-generator" activeClassName="is-active">FormGenerator</NavLink>
-        <button onClick={startLogout}>Logout</button>
+    <header className="header">
+        <div className="content-container"> 
+            <div className="header__content"> 
+                <h1 className="header__title">Professional Development Planner</h1>
+                <button className="button__logout" onClick={startLogout}>Logout</button>
+            </div>
+        </div>
+        <ul className="header__ul">
+        <li className="header__li"> <NavLink className="header__nav-link" to="/home" activeClassName="is-active">Home</NavLink> </li>
+        <li className="header__li"> <NavLink className="header__nav-link" to="/dashboard" activeClassName="is-active">Goals</NavLink> </li>
+        <li className="header__li"> <NavLink className="header__nav-link" to="/form-generator" activeClassName="is-active">FormGenerator</NavLink> </li>
+    </ul>
     </header>
 ); 
 

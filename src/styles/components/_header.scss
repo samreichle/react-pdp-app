@@ -1,0 +1,38 @@
+.header {
+    background: $crimson;
+}
+
+.header__content {
+    align-items: center;
+    display:flex;
+    justify-content: space-between;
+    padding: 0 $m-size;
+}
+
+.header__title {
+    color: white;
+}
+
+
+.header__ul {
+    display: inline;
+    padding: 0 $l-size;
+}
+
+.header__li {
+    display: inline;
+    padding: $m-size;
+}
+
+.header__nav-link {
+    color: white;
+    opacity: .9;
+    text-decoration: none;
+}
+
+.header__nav-link:hover {opacity: 10}
+
+.header__nav-link.is-active {
+    opacity: 1
+}
+

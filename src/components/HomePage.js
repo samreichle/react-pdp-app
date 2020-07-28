@@ -1,13 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const HomePage = () => (
-    <div>
-        <h3>Useful Info</h3>
-        <p>Professional development, also known as continuing education, should be an essential component of your career growth and plan. With constant change and the evolution of the meeting planning profession, keeping your skills and knowledge current will give you a competitive advantage in achieving your career goals. As with your other life goals, it is recommended that you develop a personalized action plan designed to help you achieve your goals. A plan with explicit goals will provide structure for your future learning. Life-long learning is the key to growth and empowerment. Based upon your personal assessment of your current knowledge, skills and abilities, orbased upon your results from the MPI Skills Assessment, or based upon feedback you have received from others, ask yourself the following questions: How can I improve or strengthen my work performance? What are the key areas I want or need to develop to remain proficient in my profession? What are new skills and knowledge I will need in the future? After determining the key learning areas in which you want to focus, develop specific and measurable goals in which to pursue. Use this template to facilitate your goal-setting process, to document your results, and to track your accomplishments.</p>
+    <div className="content-container">
+        <p> </p>
+        <center><h3>"Unless you try to do something beyond what you have already mastered, you will never grow." </h3></center>
+        <center><p>-Ralph Waldo Emerson</p></center>
+        <hr/>
+        <p className="home-page__paragraph">
+            Professional development is an essential component of career growth. Keeping your skills and 
+            knowledge current will provide you with a competitive advantage in achieving your career goals. This Professional Development Planner is a tool to help plan and 
+            structure your journey towards professional growth and advancement.
+        </p>
         <p></p>
-        <p>As I develop my Action Plan, I will use the SMART model by ensuring all of my goals and action steps are Specific, Measurable, Attainable, Realistic and within a specific Timeframe.  Complete a plan for each of my goals. </p>
-        </div>
+        <p className="home-page__paragraph">
+        Before jumping into the process of creating goals, take some time to assess your current knowledge and skills. 
+        This will make it easier to identify areas in which you can improve and begin to obtain your goals. Some questions to help in 
+        identifying these areas are listed below.
+        </p>
+        <ul className="home-page__ul">
+            <li>How can I improve or strengthen my work performance?</li>
+            <li>What are the key areas I want or need to develop to remain proficient in my profession?</li>
+            <li>What are new skills and knowledge I will need in the future?</li>
+        </ul>
+        <p className="home-page__paragraph"> 
+            After determining the key learning areas in which you want to focus, it is time to begin creating your <Link to={"/dashboard"}>goals</Link>. 
+        
+        </p>
+    </div>
 );
 
 export default HomePage;

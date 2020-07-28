@@ -1,0 +1,22 @@
+
+
+.button {
+    border: $dark-grey;
+    background: white;
+    color: black;
+    font-weight: 400;
+    font-size: 3rem;
+    height: 8rem;
+    width: 30rem;
+    opacity: .9;
+    padding: $s-size;
+    transition: 0.3s;
+}
+
+.button:hover {opacity: 10}
+
+.button__logout {
+    opacity: .95;
+}
+
+.button__logout:hover {opacity: 10}
