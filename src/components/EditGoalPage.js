@@ -14,13 +14,19 @@ export class EditGoalPage extends React.Component {
   };
   render() {
     return (
-      <div>
-          <GoalForm
-            goal={this.props.goal}
-            onSubmit={this.onSubmit}
-          />
-          <button onClick={this.onRemove}>Remove Goal</button>
-        
+      <div className="content-container">
+          <div className="content-container">
+            <h1>Edit Goal</h1>
+              <GoalForm
+                goal={this.props.goal}
+                onSubmit={this.onSubmit}
+              />
+          </div>
+          <div className="content-container">
+            <div className="content-container">
+              <button onClick={this.onRemove}>Delete Goal</button>
+            </div>
+          </div>
       </div>
     );
   }

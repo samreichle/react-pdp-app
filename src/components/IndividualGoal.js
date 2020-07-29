@@ -18,6 +18,31 @@ export default class IndividualGoal extends React.Component {
         }
     };
 
+    checkStrategiesToDisplay = () => {
+        if (this.props.goal.strategyOne && this.props.goal.strategyTwo && this.props.goal.strategyThree){
+            return (
+                <div>
+                    <p><b>1.</b> {this.props.goal.strategyOne}</p>
+                    <p><b>2.</b> {this.props.goal.strategyTwo}</p>
+                    <p><b>3.</b> {this.props.goal.strategyThree}</p>
+                </div>
+            )
+        } else if (this.props.goal.strategyOne && this.props.goal.strategyTwo && (this.props.goal.strategyThree === '')){
+            return (
+                <div>
+                    <p><b>1.</b> {this.props.goal.strategyOne}</p>
+                    <p><b>2.</b> {this.props.goal.strategyTwo}</p>
+                </div>
+            )
+        } else if (this.props.goal.strategyOne && (this.props.goal.strategyTwo === '') && (this.props.goal.strategyThree === '')) {
+            return (
+                <div>
+                    <p><b>1.</b> {this.props.goal.strategyOne}</p>
+                </div>
+            )
+        }
+    };
+    
     formatDeadline = () => {
         const newDeadline=  (moment(this.props.goal.deadline));
         return (newDeadline.format('MMMM Do, YYYY'))
@@ -25,16 +50,19 @@ export default class IndividualGoal extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>Goal: </h2>
-                <p>{this.props.goal.goalName}</p>
-                <h2>Strategies: </h2>
-                <p>{this.props.goal.strategies}</p>
-                <h2>Deadline: </h2>
-                <p>{this.formatDeadline()}</p>
-                <h2>Completion Status: </h2>
-                <p>{this.checkCompletionStatus()}</p>
-
+            <div className="content-container">
+                <div>
+                    <h2>Goal: </h2>
+                    <p>{this.props.goal.goalName}</p>
+                </div>
+                <div> 
+                    <h2>Strategies: </h2>
+                    {this.checkStrategiesToDisplay()}
+                </div>
+                <div>
+                    <h3>Deadline: {this.formatDeadline()}</h3>
+                    <h3>Completion Status: {this.checkCompletionStatus()}</h3>
+                </div>
                 <Link to={`/edit/${this.props.goal.id}`}>
                     <button>Edit Goal</button>
                 </Link>

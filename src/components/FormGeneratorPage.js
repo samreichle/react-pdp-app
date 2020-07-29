@@ -29,6 +29,37 @@ addWrappedText = ({text, textWidth, doc, fontSize = 10, fontType = 'normal', lin
         cursorY += lineSpacing;
     })
 }
+
+getWrappedText = (goals, i, count, newDeadline) => {
+        if (goals[i].strategyOne && goals[i].strategyTwo && goals[i].strategyThree){
+            return (
+                count.toString() + '.' + '\n'
+                                            + '  GOAL:' + '\n' + '        ' + goals[i].goalName + '\n'
+                                            + '  STRATEGIES: ' + '\n' + '         ' 
+                                            + '  1. ' + goals[i].strategyOne + '\n' + '         '
+                                            + '  2. ' + goals[i].strategyTwo + '\n' + '         '
+                                            + '  3. ' + goals[i].strategyThree + '\n'
+                                            + '  DEADLINE: ' + '\n' + '       ' + newDeadline.format('MMMM Do, YYYY').toString()
+            )
+        } else if (goals[i].strategyOne && goals[i].strategyTwo && (goals[i].strategyThree === '')){
+            return (
+                count.toString() + '.' + '\n'
+                                            + '  GOAL:' + '\n' + '        ' + goals[i].goalName + '\n'
+                                            + '  STRATEGIES: ' + '\n' + '         ' 
+                                            + '  1. ' + goals[i].strategyOne + '\n' + '         '
+                                            + '  2. ' + goals[i].strategyTwo + '\n' 
+                                            + '  DEADLINE: ' + '\n' + '       ' + newDeadline.format('MMMM Do, YYYY').toString()
+            )
+        } else if (goals[i].strategyOne && (goals[i].strategyTwo === '') && (goals[i].strategyThree === '')) {
+            return (
+                count.toString() + '.' + '\n'
+                                            + '  GOAL:' + '\n' + '        ' + goals[i].goalName + '\n'
+                                            + '  STRATEGIES: ' + '\n' + '         ' 
+                                            + '  1. ' + goals[i].strategyOne + '\n' 
+                                            + '  DEADLINE: ' + '\n' + '       ' + newDeadline.format('MMMM Do, YYYY').toString()
+            )
+        }
+}
 generatePDF = () => {
 
     let goals = this.state.goals;
@@ -40,10 +71,7 @@ generatePDF = () => {
                 let newDeadline=  (moment(goals[i].deadline));
 
                 this.addWrappedText({
-                    text: (count.toString() + '.' + '\n'
-                                            + 'GOAL:' + '\n' + '        ' + goals[i].goalName + '\n'
-                                            + 'STRATEGIES: ' + '\n' + '         ' + goals[i].strategies + '\n'
-                                            + 'DEADLINE: ' + '\n' + '       ' + newDeadline.format('MMMM Do, YYYY').toString()), // Put a really long string here
+                    text: (this.getWrappedText(goals, i, count, newDeadline)), // Put a really long string here
                     textWidth: 220,
                     doc,
                   
@@ -52,7 +80,7 @@ generatePDF = () => {
                     fontType: 'normal',
                     lineSpacing: 7,               // Space between lines
                     xPosition: 10,                // Text offset from left of document
-                    initialYPosition: 30 + i * 50,         // Initial offset from top of document; set based on prior objects in document
+                    initialYPosition: 30 + i * 70,         // Initial offset from top of document; set based on prior objects in document
                     pageWrapInitialYPosition: 10  // Initial offset from top of document when page-wrapping
                   });
             }

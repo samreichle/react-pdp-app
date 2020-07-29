@@ -14,12 +14,14 @@ export const startAddGoal = (goalData = {}) => {
         const uid = getState().auth.uid;
         const {
             goalName = '', 
-            strategies = '', 
+            strategyOne = '', 
+            strategyTwo = '',
+            strategyThree = '',
             createdAt = 0, 
             deadline = 0, 
             completionStatus = false
         } = goalData;
-        const goal = { goalName, strategies, createdAt, deadline, completionStatus };
+        const goal = { goalName, strategyOne, strategyTwo, strategyThree, createdAt, deadline, completionStatus };
 
         return database.ref(`users/${uid}/goals`).push(goal).then((ref) => {
             dispatch(addGoal({

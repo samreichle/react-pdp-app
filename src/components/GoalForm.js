@@ -15,7 +15,9 @@ export default class GoalForm extends React.Component {
 
         this.state = {
             goalName: props.goal ? props.goal.goalName : '',
-            strategies: props.goal ? props.goal.strategies : '',
+            strategyOne: props.goal ? props.goal.strategyOne : '',
+            strategyTwo: props.goal ? props.goal.strategyTwo : '',
+            strategyThree: props.goal ? props.goal.strategyThree : '',
             deadline: props.goal ? moment(props.goal.deadline) : moment(),
             completionStatus:props.goal ? props.goal.completionStatus: false,
             calendarFocused: false,
@@ -28,10 +30,31 @@ export default class GoalForm extends React.Component {
         this.setState(() => ({ goalName }));
     };
 
-    onStrategiesChange = (e) => {
-        const strategies = e.target.value;
-        this.setState(() => ({ strategies }));
+    onStrategyOneChange = (e) => {
+        const strategyOne = e.target.value;
+        this.setState(() => ({ strategyOne }));
     };
+
+    onStrategyTwoChange = (e) => {
+        let strategyTwo = '';
+        if (e.target.value){
+            strategyTwo = e.target.value;
+            this.setState(() => ({ strategyTwo }));
+        } else {
+            this.setState(() => ({ strategyTwo }));
+        }
+    };
+
+    onStrategyThreeChange = (e) => {
+        let strategyThree = '';
+        if (e.target.value){
+            strategyThree = e.target.value;
+            this.setState(() => ({ strategyThree }));
+        } else {
+            this.setState(() => ({ strategyThree }));
+        }
+    };
+
 
     onCompletionStatusChange = (e) => {
         const completionStatus = e.target.value;
@@ -49,13 +72,15 @@ export default class GoalForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        if (!this.state.goalName || !this.state.strategies) {
-            this.setState(() => ({ error: 'Please provide a goal and strategies.' }));
+        if (!this.state.goalName || !this.state.strategyOne) {
+            this.setState(() => ({ error: 'Please provide a goal and at least one strategy.' }));
         } else {
             this.setState(() => ({ error: '' }));
             this.props.onSubmit({
                 goalName: this.state.goalName,
-                strategies: this.state.strategies,
+                strategyOne: this.state.strategyOne,
+                strategyTwo: this.state.strategyTwo,
+                strategyThree: this.state.strategyThree,
                 deadline: this.state.deadline.valueOf(),
                 completionStatus: this.state.completionStatus
             });
@@ -64,7 +89,7 @@ export default class GoalForm extends React.Component {
 
     render () {
         return (
-            <div>
+            <div className="content-container">
                 {this.state.error && <p>{this.state.error}</p>}
                 <form onSubmit={this.onSubmit}>
                     <input 
@@ -74,28 +99,50 @@ export default class GoalForm extends React.Component {
                         value={this.state.goalName}
                         onChange={this.onGoalNameChange}
                     />
-                    <textarea
-                        placeholder="Strategies"
-                        value={this.state.strategies}
-                        onChange={this.onStrategiesChange}
-                    >
-                    </textarea>
-                    <SingleDatePicker 
+                    <p></p>
+                    <div>
+                        1. <textarea
+                        placeholder="Strategy"
+                        value={this.state.strategyOne}
+                        onChange={this.onStrategyOneChange}
+                        >
+                        </textarea>
+                        <p></p>
+                        2. <textarea
+                            placeholder="Strategy"
+                            value={this.state.strategyTwo}
+                            onChange={this.onStrategyTwoChange}
+                        >
+                        </textarea>
+                        <p></p>
+                        3. <textarea
+                            placeholder="Strategy"
+                            value={this.state.strategyThree}
+                            onChange={this.onStrategyThreeChange}
+                        >
+                        </textarea>
+                    </div>
+                    <p></p>
+                    <div>
+                        <SingleDatePicker 
                         date={this.state.deadline}
                         onDateChange={this.onDateChange}
                         focused={this.state.calendarFocused}
                         onFocusChange={this.onFocusChange}
                         numberOfMonths={1}
                         isOutsideRange={() => false}
-                    />
-                    <select
+                        />
+                    </div>
+                    <div>
+                        <select
                         value={this.state.completionStatus}
                         onChange={this.onCompletionStatusChange}
-                    >
+                        >
                         <option value={true}>Complete</option>
                         <option value={false}>Incomplete</option>
-                    </select>
-                    <button>Add Goal</button>
+                        </select>
+                    </div>
+                    <button>Save Goal</button>
                 </form>
             </div>
         )
