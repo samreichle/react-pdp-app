@@ -5,41 +5,49 @@ import { Link } from 'react-router-dom';
 
 
 const GoalListFilters = (props) => (
-    <div className="content-container">
-        <h1>Goals</h1>
-
-        <Link to="/create">
-            <button>Add Goal</button>
-        </Link>
-
-        <div className="filters">
-            <div className="filters__item">        
-                <input 
-                type="text" 
-                value={props.filters.text} 
-                onChange={(e) => {
-                    props.dispatch(setTextFilter(e.target.value));
-                }} 
-                />
+    <div>
+        <div className="page-header">
+            <h1 className="page-header__dashboard-header">Goals</h1>
+        </div>
+        <div className="content-container">
+            <div className="filters">
+                <div className="filters__item">        
+                    <Link className="button__add-goal-link" to="/create">
+                    <button className="button__add-goal">Add Goal</button>
+                    </Link>
+                </div>
+        
+                <div className="filters__item">        
+                    <input 
+                    className="text-input"
+                    placeholder="Search goals"
+                    type="text" 
+                    value={props.filters.text} 
+                    onChange={(e) => {
+                        props.dispatch(setTextFilter(e.target.value));
+                    }} 
+                    />
+                </div>
+                <div className="filters__item">
+                    <select
+                    className="select"
+                    onChange={(e) => {
+                        if (e.target.value === 'incomplete') {
+                            props.dispatch(setCompletionFilter('false'));
+                        } else if (e.target.value === 'complete') {
+                            props.dispatch(setCompletionFilter('true'));
+                        } else if (e.target.value === 'all') {
+                            props.dispatch(setCompletionFilter(''));
+                        } 
+                    }}
+                >
+                    <option value="all">All Goals</option>
+                    <option value="incomplete">Incomplete</option>
+                    <option value="complete">Complete</option>
+                </select>
+                </div>
+                <div></div>
             </div>
-            <div className="filters__item">
-                <select
-                onChange={(e) => {
-                    if (e.target.value === 'incomplete') {
-                        props.dispatch(setCompletionFilter('false'));
-                    } else if (e.target.value === 'complete') {
-                        props.dispatch(setCompletionFilter('true'));
-                    } else if (e.target.value === 'all') {
-                        props.dispatch(setCompletionFilter(''));
-                    } 
-                }}
-            >
-                <option value="all">All Goals</option>
-                <option value="incomplete">Incomplete</option>
-                <option value="complete">Complete</option>
-            </select>
-            </div>
-            <div></div>
         </div>
     </div>
 );

@@ -25,7 +25,7 @@ const HomePage = () => (
             <li>What are new skills and knowledge I will need in the future?</li>
         </ul>
         <p className="home-page__paragraph"> 
-            After determining the key learning areas in which you want to focus, it is time to begin creating your <Link to={"/dashboard"}>goals</Link>. 
+            After determining the key learning areas in which you want to focus, it is time to begin creating your <Link className="home-page__link" to={"/dashboard"}><b>goals</b></Link>. 
         
         </p>
     </div>

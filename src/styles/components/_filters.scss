@@ -1,0 +1,14 @@
+.filters {
+    display: flex;
+    justify-content: left;
+    margin-bottom: $s-size;
+    margin-left: 12rem;
+
+    @media(min-width: $desktop-breakpoint) {
+        
+    }
+}
+
+.filters__item {
+    margin-right: $s-size;
+}

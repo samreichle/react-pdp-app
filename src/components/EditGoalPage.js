@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import GoalForm from './GoalForm';
-import { startEditGoal, startRemoveGoal } from '../actions/goals';
+import { startEditGoal } from '../actions/goals';
 
 export class EditGoalPage extends React.Component {
   onSubmit = (goal) => {
@@ -14,18 +14,15 @@ export class EditGoalPage extends React.Component {
   };
   render() {
     return (
-      <div className="content-container">
+      <div>
           <div className="content-container">
-            <h1>Edit Goal</h1>
+            <div className="page-header"> 
+              <h1 className="page-header__title">Edit Goal</h1>
+            </div>
               <GoalForm
                 goal={this.props.goal}
                 onSubmit={this.onSubmit}
               />
-          </div>
-          <div className="content-container">
-            <div className="content-container">
-              <button onClick={this.onRemove}>Delete Goal</button>
-            </div>
           </div>
       </div>
     );

@@ -19,9 +19,10 @@ export default class GoalForm extends React.Component {
             strategyTwo: props.goal ? props.goal.strategyTwo : '',
             strategyThree: props.goal ? props.goal.strategyThree : '',
             deadline: props.goal ? moment(props.goal.deadline) : moment(),
-            completionStatus:props.goal ? props.goal.completionStatus: false,
+            completionStatus:props.goal ? props.goal.completionStatus : false,
             calendarFocused: false,
-            error: ''
+            error: '',
+            selectedOption: props.goal ? props.goal.completionStatus.toString() : 'false'
         };
     }
 
@@ -55,10 +56,13 @@ export default class GoalForm extends React.Component {
         }
     };
 
-
     onCompletionStatusChange = (e) => {
         const completionStatus = e.target.value;
-        this.setState(() => ({ completionStatus }));
+        if (completionStatus === 'complete') {
+            this.setState(() => ({ completionStatus: true, selectedOption: 'true' }));
+        } else if (completionStatus === 'incomplete') {
+            this.setState(() => ({ completionStatus: false, selectedOption: 'false' }));
+        }
     };
 
     onDateChange = (deadline) => {
@@ -91,58 +95,86 @@ export default class GoalForm extends React.Component {
         return (
             <div className="content-container">
                 {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
-                    <input 
-                        type="text"
-                        placeholder="Goal"
-                        autoFocus
-                        value={this.state.goalName}
-                        onChange={this.onGoalNameChange}
-                    />
-                    <p></p>
-                    <div>
-                        1. <textarea
-                        placeholder="Strategy"
-                        value={this.state.strategyOne}
-                        onChange={this.onStrategyOneChange}
-                        >
-                        </textarea>
+                <form className="form" onSubmit={this.onSubmit}>
+                    <div className="form__content">
+                        <div> 
+                            <div className="form__goal-position">
+                                <input 
+                                    className="text-input"
+                                    type="text"
+                                    placeholder="Goal"
+                                    autoFocus
+                                    value={this.state.goalName}
+                                    onChange={this.onGoalNameChange}
+                                />
+                            </div>
+                            <p></p>
+                            <div>
+                                <p></p>
+                                1. <textarea
+                                        className="textarea"
+                                        placeholder="Strategy"
+                                        value={this.state.strategyOne}
+                                        onChange={this.onStrategyOneChange}
+                                    >
+                                    </textarea>
+                                <p></p>
+                                2. <textarea
+                                        className="textarea"
+                                        placeholder="Strategy (Optional)"
+                                        value={this.state.strategyTwo}
+                                        onChange={this.onStrategyTwoChange}
+                                    >
+                                    </textarea>
+                                <p></p>
+                                3. <textarea
+                                        className="textarea"
+                                        placeholder="Strategy (Optional)"
+                                        value={this.state.strategyThree}
+                                        onChange={this.onStrategyThreeChange}
+                                    >
+                                    </textarea>
+                            </div>
+                        </div>
+                        <div>
+                        <div className="form__deadline">
+                            Deadline: {}
+                            <SingleDatePicker 
+                            date={this.state.deadline}
+                            onDateChange={this.onDateChange}
+                            focused={this.state.calendarFocused}
+                            onFocusChange={this.onFocusChange}
+                            numberOfMonths={1}
+                            isOutsideRange={() => false}
+                            />
+                        </div>
                         <p></p>
-                        2. <textarea
-                            placeholder="Strategy"
-                            value={this.state.strategyTwo}
-                            onChange={this.onStrategyTwoChange}
-                        >
-                        </textarea>
+                        <div className="form__status">
+                            <label>
+                                <input 
+                                    type="radio"
+                                    name="completionStatus"
+                                    value ="complete"
+                                    checked={this.state.selectedOption === "true"}
+                                    onChange={this.onCompletionStatusChange}
+                                /> Complete
+                            </label> {}
+                            <label>
+                                <input 
+                                    type="radio"
+                                    name="completionStatus"
+                                    value="incomplete"
+                                    checked={this.state.selectedOption=== "false"}
+                                    onChange={this.onCompletionStatusChange}
+                                /> Incomplete
+                            </label>
+                        </div>
                         <p></p>
-                        3. <textarea
-                            placeholder="Strategy"
-                            value={this.state.strategyThree}
-                            onChange={this.onStrategyThreeChange}
-                        >
-                        </textarea>
+                        <div className="form__button-position">
+                            <button className="button__edit-delete">Save Goal</button>
+                        </div>
+                        </div>
                     </div>
-                    <p></p>
-                    <div>
-                        <SingleDatePicker 
-                        date={this.state.deadline}
-                        onDateChange={this.onDateChange}
-                        focused={this.state.calendarFocused}
-                        onFocusChange={this.onFocusChange}
-                        numberOfMonths={1}
-                        isOutsideRange={() => false}
-                        />
-                    </div>
-                    <div>
-                        <select
-                        value={this.state.completionStatus}
-                        onChange={this.onCompletionStatusChange}
-                        >
-                        <option value={true}>Complete</option>
-                        <option value={false}>Incomplete</option>
-                        </select>
-                    </div>
-                    <button>Save Goal</button>
                 </form>
             </div>
         )

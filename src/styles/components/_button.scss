@@ -20,3 +20,31 @@
 }
 
 .button__logout:hover {opacity: 10}
+
+.button__add-goal {
+    background: rgba(153, 0, 0, 0.822);
+    color: white;
+    height: 6rem;
+    width: 25rem;
+}
+
+.button__add-goal-link {
+    text-decoration: none;
+}
+
+.button__edit-delete {
+    background: rgba(153, 0, 0, 0.822);
+    color: white;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+}
+
+.button__download-pdf {
+    background: rgba(153, 0, 0, 0.822);
+    color: white;
+    font-size: 2rem;
+    height: 7rem;
+    width: 20rem;
+    margin-left: 27rem;
+}

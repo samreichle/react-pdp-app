@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
+import { startRemoveGoal } from '../actions/goals';
+
 
 export default class IndividualGoal extends React.Component {
 
@@ -22,9 +24,11 @@ export default class IndividualGoal extends React.Component {
         if (this.props.goal.strategyOne && this.props.goal.strategyTwo && this.props.goal.strategyThree){
             return (
                 <div>
-                    <p><b>1.</b> {this.props.goal.strategyOne}</p>
-                    <p><b>2.</b> {this.props.goal.strategyTwo}</p>
-                    <p><b>3.</b> {this.props.goal.strategyThree}</p>
+                    <ol>
+                        <li>{this.props.goal.strategyOne}</li>
+                        <li>{this.props.goal.strategyTwo}</li>
+                        <li>{this.props.goal.strategyThree}</li>
+                    </ol>
                 </div>
             )
         } else if (this.props.goal.strategyOne && this.props.goal.strategyTwo && (this.props.goal.strategyThree === '')){
@@ -51,21 +55,35 @@ export default class IndividualGoal extends React.Component {
     render() {
         return (
             <div className="content-container">
-                <div>
-                    <h2>Goal: </h2>
-                    <p>{this.props.goal.goalName}</p>
+                <div className="individual-goal">
+                    <div className="individual-goal__goal-strats">
+                        <p><b>Goal: </b> {this.props.goal.goalName}</p>
+                        <div> 
+                            <p><b>Strategies: </b></p>
+                            <div className="individual-goal__strats">
+                                {this.checkStrategiesToDisplay()}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="individual-goal__other">
+                        <p><b>Deadline: </b> {this.formatDeadline()}</p>
+                        <p><b>Status: </b> {this.checkCompletionStatus()}</p>
+                        <div>
+                            <Link to={`/edit/${this.props.goal.id}`}>
+                            <button className="button__edit-delete">Edit Goal</button>
+                            </Link>
+                        </div>
+                        <div>
+                            <button className="button__edit-delete" onClick={() => {
+                                this.props.dispatch(startRemoveGoal({ id: this.props.goal.id }));
+                                this.props.history.push('/dashboard');
+                            }}>
+                                Delete Goal
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div> 
-                    <h2>Strategies: </h2>
-                    {this.checkStrategiesToDisplay()}
-                </div>
-                <div>
-                    <h3>Deadline: {this.formatDeadline()}</h3>
-                    <h3>Completion Status: {this.checkCompletionStatus()}</h3>
-                </div>
-                <Link to={`/edit/${this.props.goal.id}`}>
-                    <button>Edit Goal</button>
-                </Link>
+
             </div>
         )
     }

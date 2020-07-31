@@ -5,10 +5,25 @@ import selectGoals from '../selectors/goals';
 import { Link } from 'react-router-dom';
 
 const GoalList = (props) => (
-    <div>
-        {props.goals.map((goal) => {
-            return <GoalListItem key={goal.id} {...goal}/>;
-        })}
+    <div className="content-container">
+        <div className="list-header">
+            <div className="show-for-mobile">Goals</div>
+            <div className="show-for-desktop">Goal</div>
+            <div className="show-for-desktop">Status</div>
+        </div>
+        <div className="list-body">
+            {
+                props.goals.length === 0 ? (
+                    <div className="list-item list-item--message">
+                      <span>No goals</span>
+                    </div>
+                  ) : (
+                        props.goals.map((goal) => {
+                            return <GoalListItem key={goal.id} {...goal}/>;
+                        })
+                    )
+            }
+        </div>
     </div>
 );
 

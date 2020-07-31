@@ -1,7 +1,22 @@
 .home-page__paragraph {
     padding: 0 15rem;
+    color: $grey-font;
 }
 
 .home-page__ul {
     padding: 0 20rem;
+    color: $grey-font;
 }
+
+.home-page__link {
+    color: $grey-font;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.home-page__link:hover {
+    color: $grey-font;
+    opacity: 1;
+    text-decoration: none;
+}
+

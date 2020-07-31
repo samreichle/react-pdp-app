@@ -1,0 +1,37 @@
+
+.page-header {
+    background: $off-white;
+    margin-bottom: $s-size;
+    padding: $s-size 0;
+  }
+  
+  .page-header__actions {
+    margin-top: $s-size;
+  }
+  
+  .page-header__title {
+    margin-bottom: 0;
+    margin-left: 29rem;
+    padding: 0 0;
+    font-size: 60px;
+    color: $grey-font;
+    span {
+      font-weight: 700;
+    };
+  }
+
+  .page-header__dashboard-header {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 14rem;
+    padding:0;
+    font-size: 80px;
+    color: $grey-font;
+}
+
+.page-header__add-edit {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding:0;
+}
+

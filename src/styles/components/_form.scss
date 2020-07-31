@@ -1,0 +1,36 @@
+.form {
+    color: $grey-font;
+    font-size: 30px;
+    margin-left: 12rem;
+    margin-right: 12rem;
+    margin-top: 6rem;
+
+}
+
+.form__content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form__status {
+    margin-left: 12rem;
+    margin-right: 12rem;
+}
+
+.form__deadline {
+    margin-left: 12rem;
+    margin-right: 12rem;
+}
+
+.form__error {
+    margin: 0 0 $m-size 0;
+    font-style: italic;
+  }
+
+.form__button-position {
+    margin-left: 12rem;
+}
+  
+.form__goal-position {
+    margin-left: 3.3rem;
+}

@@ -4,8 +4,10 @@ import GoalForm from './GoalForm';
 import { startAddGoal } from '../actions/goals';
 
 const AddGoalPage = (props) => (
-    <div>
-        <h1>Add Goal</h1>
+    <div className="content-container">
+        <div className="page-header">
+                <h1 className="page-header__title">Add Goal</h1>
+        </div>
         <GoalForm 
             onSubmit={(goal) => {
                 props.dispatch(startAddGoal(goal));

@@ -69,29 +69,33 @@ generatePDF = () => {
                 let count = i + 1;
                 let goals = this.state.goals;
                 let newDeadline=  (moment(goals[i].deadline));
-
-                this.addWrappedText({
-                    text: (this.getWrappedText(goals, i, count, newDeadline)), // Put a really long string here
-                    textWidth: 220,
-                    doc,
-                  
-                    // Optional
-                    fontSize: '12',
-                    fontType: 'normal',
-                    lineSpacing: 7,               // Space between lines
-                    xPosition: 10,                // Text offset from left of document
-                    initialYPosition: 30 + i * 70,         // Initial offset from top of document; set based on prior objects in document
-                    pageWrapInitialYPosition: 10  // Initial offset from top of document when page-wrapping
-                  });
+                if (goals[i].completionStatus === false || goals[i].completionStatus === 'false') {
+                    this.addWrappedText({
+                        text: (this.getWrappedText(goals, i, count, newDeadline)), // Put a really long string here
+                        textWidth: 220,
+                        doc,
+                    
+                        // Optional
+                        fontSize: '12',
+                        fontType: 'normal',
+                        lineSpacing: 7,               // Space between lines
+                        xPosition: 10,                // Text offset from left of document
+                        initialYPosition: 30 + i * 70,         // Initial offset from top of document; set based on prior objects in document
+                        pageWrapInitialYPosition: 10  // Initial offset from top of document when page-wrapping
+                    });
+                }
             }
 
-        doc.save('demo.pdf');
+        doc.save('goals-report.pdf');
 }
     
    render() {
       return (
-         <div>
-            <button onClick={this.generatePDF} type="primary">Download PDF</button> 
+         <div className="content-container">
+            <div className="form-generator">
+                <p>Click the button below to download a PDF report of your current goals.</p>
+                <button  className="button__download-pdf" onClick={this.generatePDF} type="primary">Download PDF</button> 
+            </div>
          </div>
       );
    }

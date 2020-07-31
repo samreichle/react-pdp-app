@@ -25,10 +25,13 @@ class GoalListItem extends React.Component {
     render() {
         return (
             <div>
-                <Link to={`/goal/${this.props.id}`}>
-                    <h3>{this.props.goalName}</h3>
+                <Link className="list-item" to={`/goal/${this.props.id}`}>
+                    <div>
+                        <h3 className="list-item__title">{this.props.goalName}</h3>
+                        <span className="list-item__sub-title">Deadline: {this.formatDeadline()}</span>
+                    </div>
+                    <h3 className="list-item__title">{this.checkCompletionStatus()}</h3>
                 </Link>
-                <p>{this.checkCompletionStatus()} - Deadline: {this.formatDeadline()}</p>
             </div>
         )
     }

@@ -8,20 +8,18 @@ const ViewGoalPage = (props) => {
         <div>
             <IndividualGoal 
                 goal={props.goal}
+                dispatch={props.dispatch}
+                history={props.history}
             />
-            <button onClick={() => {
-                props.dispatch(startRemoveGoal({ id: props.goal.id }));
-                props.history.push('/dashboard');
-            }}>
-                Delete Goal
-            </button>
         </div>
     );
 }
 
 const mapStateToProps = (state, props) => {
     return {
-        goal: state.goals.find((goal) => goal.id === props.match.params.id)
+        goal: state.goals.find((goal) => goal.id === props.match.params.id),
+        dispatch: props.dispatch,
+        history: props.history
     };
 };
 
