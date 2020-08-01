@@ -16,7 +16,9 @@ export class EditGoalPage extends React.Component {
     return (
       <div>
             <div className="page-header"> 
-              <h1 className="page-header__title">Edit Goal</h1>
+              <div className="content-container">
+                <h1 className="page-header__title">Edit Goal</h1>
+              </div>
             </div>
             <div className="content-container">
               <GoalForm

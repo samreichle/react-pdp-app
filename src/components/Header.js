@@ -11,12 +11,13 @@ export const Header = ({ startLogout }) => (
                 <h1 className="header__title">Professional Development Planner</h1>
                 <button className="button__logout" onClick={startLogout}>Logout</button>
             </div>
-        </div>
-        <ul className="header__ul">
-        <li className="header__li"> <NavLink className="header__nav-link" to="/home" activeClassName="is-active">Home</NavLink> </li>
-        <li className="header__li"> <NavLink className="header__nav-link" to="/dashboard" activeClassName="is-active">Goals</NavLink> </li>
-        <li className="header__li"> <NavLink className="header__nav-link" to="/form-generator" activeClassName="is-active">Report</NavLink> </li>
-    </ul>
+        
+            <ul className="header__ul">
+                <li className="header__li"> <NavLink className="header__nav-link" to="/home" activeClassName="is-active">Home</NavLink> </li>
+                <li className="header__li"> <NavLink className="header__nav-link" to="/dashboard" activeClassName="is-active">Goals</NavLink> </li>
+                <li className="header__li"> <NavLink className="header__nav-link" to="/form-generator" activeClassName="is-active">Report</NavLink> </li>
+            </ul>
+    </div>
     </header>
 ); 
 

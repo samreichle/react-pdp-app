@@ -6,7 +6,9 @@ import { startAddGoal } from '../actions/goals';
 const AddGoalPage = (props) => (
     <div>
             <div className="page-header">
+                <div className="content-container">
                     <h1 className="page-header__title">Add Goal</h1>
+                </div>
             </div>
         <div className="content-container">
             <GoalForm 

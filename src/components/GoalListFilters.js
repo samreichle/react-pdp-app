@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom';
 const GoalListFilters = (props) => (
     <div>
         <div className="page-header">
-            <h1 className="page-header__dashboard-header">Goals</h1>
+            <div className="content-container">
+                <h1 className="page-header__dashboard-header">Goals</h1>
+            </div>
         </div>
         <div className="content-container">
             <div className="filters">
