@@ -2,6 +2,7 @@
 
 .button {
     border: $dark-grey;
+    border-radius: 10px;
     background: white;
     color: black;
     font-weight: 400;
@@ -11,6 +12,12 @@
     opacity: .9;
     padding: $s-size;
     transition: 0.3s;
+    @media (max-width: $desktop-breakpoint) {
+        font-size: 15px;
+        padding-top: 0;
+        height: 4rem;
+        width: 10rem;
+      }
 }
 
 .button:hover {opacity: 10}
@@ -56,6 +63,7 @@
     height: 7rem;
     width: 20rem;
     @media (max-width: $desktop-breakpoint) {
+        font-size: 13px;
         height: 4rem;
         width: 10rem;
       }

@@ -94,7 +94,7 @@ export default class GoalForm extends React.Component {
     render () {
         return (
             <div className="content-container">
-                {this.state.error && <p>{this.state.error}</p>}
+                {this.state.error && <p className="form__error">{this.state.error}</p>}
                 <form className="form" onSubmit={this.onSubmit}>
                     <div className="form__content">
                         <div> 

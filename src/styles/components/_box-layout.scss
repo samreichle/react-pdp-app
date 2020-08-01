@@ -24,5 +24,8 @@
     font-size: 50px;
     font-weight: 1000;
     margin: 10rem 0 $m-size 0;
-    opacity: 10
+    opacity: 10;
+    @media (max-width: $desktop-breakpoint) {
+        font-size: 25px;
+      }
 }
