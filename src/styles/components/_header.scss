@@ -17,6 +17,10 @@
 .header__ul {
     display: inline;
     padding: 0 $l-size;
+    margin-left: 10.5rem;
+    @media (max-width: $desktop-breakpoint) {
+        margin-left: 0;
+      }
 }
 
 .header__li {
@@ -28,6 +32,7 @@
     color: white;
     opacity: .9;
     text-decoration: none;
+    margin-left: .5rem;
 }
 
 .header__nav-link:hover {opacity: 10}

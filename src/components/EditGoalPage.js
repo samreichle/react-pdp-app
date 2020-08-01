@@ -15,10 +15,10 @@ export class EditGoalPage extends React.Component {
   render() {
     return (
       <div>
-          <div className="content-container">
             <div className="page-header"> 
               <h1 className="page-header__title">Edit Goal</h1>
             </div>
+            <div className="content-container">
               <GoalForm
                 goal={this.props.goal}
                 onSubmit={this.onSubmit}

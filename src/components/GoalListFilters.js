@@ -17,16 +17,18 @@ const GoalListFilters = (props) => (
                     </Link>
                 </div>
         
-                <div className="filters__item">        
-                    <input 
-                    className="text-input"
-                    placeholder="Search goals"
-                    type="text" 
-                    value={props.filters.text} 
-                    onChange={(e) => {
-                        props.dispatch(setTextFilter(e.target.value));
-                    }} 
-                    />
+                <div className="filters__item">
+                    <div className="show-for-desktop">    
+                        <input 
+                        className="text-input"
+                        placeholder="Search goals"
+                        type="text" 
+                        value={props.filters.text} 
+                        onChange={(e) => {
+                            props.dispatch(setTextFilter(e.target.value));
+                        }} 
+                        />
+                    </div>    
                 </div>
                 <div className="filters__item">
                     <select

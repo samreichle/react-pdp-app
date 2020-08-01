@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 const GoalList = (props) => (
     <div className="content-container">
         <div className="list-header">
-            <div className="show-for-mobile">Goals</div>
+            <div className="show-for-mobile">Goal</div>
+            <div className="show-for-mobile">Status</div>
             <div className="show-for-desktop">Goal</div>
             <div className="show-for-desktop">Status</div>
         </div>

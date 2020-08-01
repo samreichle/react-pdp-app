@@ -7,14 +7,21 @@
     margin-left: 12rem;
     margin-right: 20rem;
     padding: $s-size $m-size;
+    @media (max-width: $desktop-breakpoint) {
+      margin-bottom: 0;
+      margin-left:0;
+      margin-right: 0;
+    }
   }
   
   .list-body {
     margin-bottom: $m-size;
     margin-left: 12rem;
     margin-right: 20rem;
-    @media (min-width: $desktop-breakpoint) {
-      margin-bottom: $l-size;
+    @media (max-width: $desktop-breakpoint) {
+      margin-bottom: 0;
+      margin-left:0;
+      margin-right: 0;
     }
   }
   
@@ -23,18 +30,18 @@
     border-top: none;
     color: $dark-grey;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     padding: $s-size;
     text-decoration: none;
     transition: background .3s ease;
     &:hover {
       background: $off-white;
     }
-    @media (min-width: $desktop-breakpoint) {
+    @media (max-width: $desktop-breakpoint) {
       align-items: center;
       flex-direction: row;
       justify-content: space-between;
-      padding: $m-size;
+      padding: 0;
     }
   }
   
@@ -47,23 +54,33 @@
       background: none;
     }
   }
-  
+
   .list-item__title {
       color: $grey-font;
       margin: 0;
       word-break: break-all;
+      @media (max-width: $desktop-breakpoint) {
+      font-size: 16px;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
   }
   
   .list-item__sub-title {
     color: $grey;
     font-size: 20px;
+    @media (max-width: $desktop-breakpoint) {
+      font-size: 15px;
+      margin-left: 1rem;
+    }
   }
   
   .list-item__data {
     margin: $s-size 0 0 0;
-    @media (min-width: $desktop-breakpoint) {
+    @media (max-width: $desktop-breakpoint) {
       margin: 0;
-      padding-left: $s-size;
+      padding-left: 0;
+      font-size: 16px;
     }
   }
   

@@ -92,9 +92,9 @@ generatePDF = () => {
    render() {
       return (
          <div className="content-container">
-            <div className="form-generator">
-                <p>Click the button below to download a PDF report of your current goals.</p>
-                <button  className="button__download-pdf" onClick={this.generatePDF} type="primary">Download PDF</button> 
+            <div>
+                <center><p>Click the button below to download a PDF report of your current goals.</p></center>
+                <center><button  className="button__download-pdf" onClick={this.generatePDF} type="primary">Download PDF</button></center>
             </div>
          </div>
       );

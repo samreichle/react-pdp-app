@@ -1,11 +1,19 @@
 .home-page__paragraph {
     padding: 0 15rem;
     color: $grey-font;
+    @media (max-width: $desktop-breakpoint) {
+        padding:0;
+        margin-left: 0;
+      }
 }
 
 .home-page__ul {
     padding: 0 20rem;
     color: $grey-font;
+    @media (max-width: $desktop-breakpoint) {
+        padding:0;
+        margin-left: 1rem;
+      }
 }
 
 .home-page__link {

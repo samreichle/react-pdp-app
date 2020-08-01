@@ -8,8 +8,11 @@ html {
 body {
     color: $dark-grey;
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    font-size: 2.3rem;
+    font-size: 2rem;
     line-height: 1.6;
+    @media (max-width: $desktop-breakpoint) {
+        font-size: 1.5rem;
+      }
 }
 
 button {

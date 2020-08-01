@@ -68,18 +68,20 @@ export default class IndividualGoal extends React.Component {
                     <div className="individual-goal__other">
                         <p><b>Deadline: </b> {this.formatDeadline()}</p>
                         <p><b>Status: </b> {this.checkCompletionStatus()}</p>
-                        <div>
-                            <Link to={`/edit/${this.props.goal.id}`}>
-                            <button className="button__edit-delete">Edit Goal</button>
-                            </Link>
-                        </div>
-                        <div>
-                            <button className="button__edit-delete" onClick={() => {
-                                this.props.dispatch(startRemoveGoal({ id: this.props.goal.id }));
-                                this.props.history.push('/dashboard');
-                            }}>
-                                Delete Goal
-                            </button>
+                        <div className="individual-goal__buttons">
+                            <div>
+                                <Link to={`/edit/${this.props.goal.id}`}>
+                                <button className="button__edit-delete">Edit Goal</button>
+                                </Link>
+                            </div>
+                            <div>
+                                <button className="button__edit-delete" onClick={() => {
+                                    this.props.dispatch(startRemoveGoal({ id: this.props.goal.id }));
+                                    this.props.history.push('/dashboard');
+                                }}>
+                                    Delete Goal
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

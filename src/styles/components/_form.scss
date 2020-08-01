@@ -1,36 +1,79 @@
 .form {
     color: $grey-font;
-    font-size: 30px;
+    font-size: 2.5rem;
     margin-left: 12rem;
     margin-right: 12rem;
     margin-top: 6rem;
-
+    @media (max-width: $desktop-breakpoint) {
+        display: table-row;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        font-size: 17px;
+    }
 }
 
 .form__content {
     display: flex;
     justify-content: space-evenly;
+    @media (max-width: $desktop-breakpoint) {
+        display: table-row;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        font-size: 17px;
+      }
 }
 
 .form__status {
     margin-left: 12rem;
     margin-right: 12rem;
+    @media (max-width: $desktop-breakpoint) {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        font-size: 17px;
+      }
 }
 
 .form__deadline {
     margin-left: 12rem;
     margin-right: 12rem;
+    @media (max-width: $desktop-breakpoint) {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        font-size: 17px;
+      }
 }
 
 .form__error {
     margin: 0 0 $m-size 0;
     font-style: italic;
+    @media (max-width: $desktop-breakpoint) {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        font-size: 17px;
+      }
   }
 
 .form__button-position {
     margin-left: 12rem;
+    @media (max-width: $desktop-breakpoint) {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        font-size: 17px;
+      }
 }
   
 .form__goal-position {
-    margin-left: 3.3rem;
+    margin-left: 2.9rem;
+    @media (max-width: $desktop-breakpoint) {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        font-size: 17px;
+      }
 }

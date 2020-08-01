@@ -120,8 +120,8 @@ export default class GoalForm extends React.Component {
                                     </textarea>
                                 <p></p>
                                 2. <textarea
+                                placeholder="Strategy (optional)"
                                         className="textarea"
-                                        placeholder="Strategy (Optional)"
                                         value={this.state.strategyTwo}
                                         onChange={this.onStrategyTwoChange}
                                     >
@@ -129,7 +129,7 @@ export default class GoalForm extends React.Component {
                                 <p></p>
                                 3. <textarea
                                         className="textarea"
-                                        placeholder="Strategy (Optional)"
+                                        placeholder="Strategy (optional)"
                                         value={this.state.strategyThree}
                                         onChange={this.onStrategyThreeChange}
                                     >

@@ -1,18 +1,29 @@
 .text-input {
     border: 1px solid #cacccd;
     height: 35px;
-    font-size: 25px;
     font-weight: 300;
     padding: $s-size;
+    @media (max-width: $desktop-breakpoint) {
+      height: 3rem;
+      width: 16rem;
+    }
   }
   
   .select {
     @extend .text-input;
-    height: 60px
+    height: 60px;
+    @media (max-width: $desktop-breakpoint) {
+      height: 4rem;
+      width: 10rem;
+    }
   }
   
   .textarea {
     @extend .text-input;
     height: 6rem;
-    width: 40rem
+    width: 40rem;
+    @media (max-width: $desktop-breakpoint) {
+      height: 4rem;
+      width: 22rem;
+    }
   }
