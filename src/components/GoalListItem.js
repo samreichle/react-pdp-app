@@ -19,7 +19,14 @@ class GoalListItem extends React.Component {
 
     formatDeadline = () => {
         const newDeadline=  (moment(this.props.deadline));
-        return (newDeadline.format('MMMM Do, YYYY'))
+        return newDeadline.format('MMMM Do, YYYY');
+    };
+
+    checkPastDue = () => {
+        const now = moment();
+        if (this.props.deadline < now) {
+            return ('Past Due!');
+        }
     };
    
     render() {
@@ -30,7 +37,10 @@ class GoalListItem extends React.Component {
                         <h3 className="list-item__title">{this.props.goalName}</h3>
                         <span className="list-item__sub-title">Deadline: {this.formatDeadline()}</span>
                     </div>
-                    <h3 className="list-item__title">{this.checkCompletionStatus()}</h3>
+                    <div>
+                        <h3 className="list-item__title">{this.checkCompletionStatus()}</h3>
+                        <h3 className="list-item__alert">{this.checkPastDue()}</h3>
+                    </div>
                 </Link>
             </div>
         )
