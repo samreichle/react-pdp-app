@@ -15,8 +15,8 @@ class FormGeneratorPage extends React.Component{
 addWrappedText = ({text, textWidth, doc, fontSize = 10, fontType = 'normal', lineSpacing = 7, xPosition = 10, initialYPosition = 10, pageWrapInitialYPosition = 10}) => {
     var textLines = doc.splitTextToSize(text, textWidth); // Split the text into lines
     var pageHeight = doc.internal.pageSize.height;        // Get page height, well use this for auto-paging
-    doc.setFontType(fontType);
-    doc.setFontSize(fontSize);
+    doc.setFont(undefined, fontType);
+    doc.setFont(undefined, fontSize);
 
     var cursorY = initialYPosition;
 
